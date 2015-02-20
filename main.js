@@ -15,7 +15,9 @@ function showTime(date) {
   var daysArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var hours = date.getHours();
   var regHours = hours - 12;
-  var minutes = fixMinutes(date)
+
+  if (date.getMinutes() < 10) { fixMinutes(date) } else { var minutes = date.getMinutes() }
+
   var seconds = date.getSeconds()
   var el = ('<p id="time">' + "Today is " + daysArr[today] + " and the time is " + regHours + ":" + minutes + " p.m." + " and " + seconds + " seconds." + '</p>')
 
