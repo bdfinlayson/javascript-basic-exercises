@@ -1,11 +1,17 @@
 //Javascript Basic Exercises | http://www.w3resource.com/javascript-exercises/javascript-basic-exercises.php
+
+//modular clearing function
+
+function clear(data) {
+  $(data).remove()
+}
+
+
 //Exercise 1
 
 $('#timeButton').on('click', function() {
-
   var date = new Date();
   showTime(date)
-
 })
 
 function showTime(date) {
@@ -25,16 +31,12 @@ function showTime(date) {
 }
 
 function fixMinutes(date) {
-
   if (date.getMinutes() < 10) {
-
     var minutes = '0' +  date.getMinutes().toString()
     return minutes;
   }
 }
 
-function clear(data) {
+//Exercise 2
 
-  $(data).remove()
 
-}
