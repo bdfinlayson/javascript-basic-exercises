@@ -79,7 +79,7 @@ function showCurrentDate(date) {
   var elToClear = '#currentDate'
   clear(elToClear)
   var month = date.getMonth()
-  var day = date.getDay() 
+  var day = date.getDay()
   var year = date.getFullYear()
   printCurrentDate(month, day, year)
 
@@ -89,5 +89,56 @@ function printCurrentDate(month, day, year) {
 
   var el = ('<p id="currentDate">' + month + '/' + day + '/' + year + '</p>');
   $('#ex3').after(el)
+
+}
+
+//Exercise 4
+
+$('#rotateString').on('click', function() {
+
+  var string = findString()
+  var splitStr = splitString(string)
+  var newString = rotateString(splitStr)
+  printString(newString)
+})
+
+function findString() {
+
+  var string = $('#string').text()
+  console.log(string);
+  return string;
+
+}
+
+function splitString(string) {
+
+  var splitStr = string.split('')
+  console.log(splitStr)
+  return splitStr;
+}
+
+function rotateString(splitStr) {
+
+  var lastLetter = splitStr.pop()
+  console.log(lastLetter)
+  var firstLetter = splitStr.shift()
+  console.log(firstLetter)
+  console.log(splitStr.length)
+  var newStringArr =  splitStr += firstLetter
+  console.log(newStringArr)
+    newStringArr = lastLetter += splitStr
+  console.log(newStringArr)
+  var newString = newStringArr.join('')
+  return newString;
+}
+
+function printString(newString) {
+
+  var elToClear = '#string'
+  clear(elToClear)
+
+  var stringEl = '<p id="string">' + newString + '</p>'
+
+  $('#ex4').after(stringEl)
 
 }
