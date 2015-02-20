@@ -39,4 +39,8 @@ function fixMinutes(date) {
 
 //Exercise 2
 
+$('#printButton').on('click', function () {
 
+  window.print()
+
+})
