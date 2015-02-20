@@ -15,11 +15,20 @@ function showTime(date) {
   var daysArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var hours = date.getHours();
   var regHours = hours - 12;
-  var minutes = date.getMinutes()
+  var minutes = fixMinutes(date)
   var seconds = date.getSeconds()
   var el = ('<p id="time">' + "Today is " + daysArr[today] + " and the time is " + regHours + ":" + minutes + " p.m." + " and " + seconds + " seconds." + '</p>')
-  
+
   $('#ex1').after(el)
+}
+
+function fixMinutes(date) {
+
+  if (date.getMinutes() < 10) {
+
+    var minutes = '0' +  date.getMinutes().toString()
+    return minutes;
+  }
 }
 
 function clear(data) {
