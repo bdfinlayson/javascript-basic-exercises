@@ -97,8 +97,7 @@ function printCurrentDate(month, day, year) {
 $('#rotateString').on('click', function() {
 
   var string = findString()
-  var splitStr = splitString(string)
-  var newString = rotateString(splitStr)
+  var newString = rotateString(string)
   printString(newString)
 })
 
@@ -110,26 +109,14 @@ function findString() {
 
 }
 
-function splitString(string) {
+function rotateString(string) {
 
-  var splitStr = string.split('')
-  console.log(splitStr)
-  return splitStr;
-}
+ var newString = '';
+ for (var i = string.length - 1; i >= 0; i--)
+   newString += string[i];
+   console.log(newString)
+ return newString;
 
-function rotateString(splitStr) {
-
-  var lastLetter = splitStr.pop()
-  console.log(lastLetter)
-  var firstLetter = splitStr.shift()
-  console.log(firstLetter)
-  console.log(splitStr.length)
-  var newStringArr =  splitStr += firstLetter
-  console.log(newStringArr)
-    newStringArr = lastLetter += splitStr
-  console.log(newStringArr)
-  var newString = newStringArr.join('')
-  return newString;
 }
 
 function printString(newString) {
