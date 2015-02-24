@@ -129,3 +129,62 @@ function printString(newString) {
   $('#ex4').after(stringEl)
 
 }
+
+//Exercise 5
+
+$('#stringToCaps').on('click', function() {
+
+  var string = getUserString()
+  console.log('this should be var string: ' + string)
+  var newString = createStringArr(string)
+  console.log('why are you: ' + newString + '?') //why is it undefined?
+  var aString = capitalizeStr(newString)
+  var joinArrToString = joinString(newString)
+  printNewString(joinArrToString)
+
+})
+
+function getUserString() {
+
+  var string = $('#userInput').val()
+  console.log(string)
+  return string;
+
+}
+
+function createStringArr(string) {
+
+  var stringArr = string.split(' ')
+  console.log(stringArr)
+  return stringArr;
+}
+
+function capitalizeStr(newString) {
+
+  console.log('what the capitalizeStr function sees: ' + newString)
+
+  var aString = newString.map(function(word) {
+
+  word.charAt(0).toUpperCase() + word.slice(1);
+  return aString;
+  })
+
+}
+
+function joinString (newString) {
+
+  console.log(newString)
+  var joinedString = newString.join(' ');
+  return joinedString;
+
+}
+
+function printNewString(joinArrToString) {
+
+  var el = '#capString'
+  clear(el)
+
+  $('#stringToCaps').after('<p id="capString">' + joinArrToString + '</p>')
+
+}
+
